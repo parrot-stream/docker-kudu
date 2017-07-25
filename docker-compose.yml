@@ -1,0 +1,38 @@
+version: '3'
+services:
+  kudu-master:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: parrotstream/kudu:latest
+    networks:
+      parrot:
+        aliases:
+        - kudu
+    cap_add:
+    - SYS_TIME
+    ports:
+    - 7051:7051
+    - 8051:8051
+    environment:
+      KUDU_MASTER: "true"
+  kudu-tserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: parrotstream/kudu:latest
+    networks:
+    - parrot
+    cap_add:
+    - SYS_TIME
+    ports:
+    - 7050:7050
+    - 8050:8050
+    environment:
+      KUDU_MASTER: "false"
+networks:
+  default:
+    external:
+      name: parrot
+  parrot:
+    driver: bridge
