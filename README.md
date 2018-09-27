@@ -17,7 +17,6 @@ You can also find other images based on different Apache Kudu releases, using a 
 
     docker pull parrotstream/kudu:[kudu-release]-[cdh-release]
 
-
 Stop with Docker Compose:
 
     docker-compose up
@@ -36,4 +35,5 @@ Once started you'll be able to access to the following UIs:
 
 ### Available tags:
 
-- Kudu 1.3.0 ([1.3.0-cdh5.11.1](https://github.com/parrot-stream/docker-kudu/blob/1.3.0-cdh5.11.1/Dockerfile), [latest](https://github.com/parrot-stream/docker-kudu/blob/latest/Dockerfile))
+- Kudu 1.7.0 ([1.7.0-cdh5.15.1](https://github.com/parrot-stream/docker-kudu/blob/1.7.0-cdh5.15.1/Dockerfile), [latest](https://github.com/parrot-stream/docker-kudu/blob/latest/Dockerfile))
+- Kudu 1.3.0 ([1.3.0-cdh5.11.1](https://github.com/parrot-stream/docker-kudu/blob/1.3.0-cdh5.11.1/Dockerfile))
