@@ -13,7 +13,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: parrotstream/kudu:latest
+    image: parrotstream/kudu:1.6.0-cdh6.0.0
     networks:
       parrot:
         aliases:
@@ -31,7 +31,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: parrotstream/kudu:latest
+    image: parrotstream/kudu:1.6.0-cdh6.0.0
     networks:
     - parrot
     cap_add:
