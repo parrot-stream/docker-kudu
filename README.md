@@ -1,4 +1,4 @@
-# **docker-impala-kudu**
+# **docker-kudu**
 ___
 
 ### Description
@@ -20,10 +20,12 @@ You can also find other images based on different Apache Kudu releases, using a 
 
 Stop with Docker Compose:
 
-    docker-compose -p parrot
+    docker-compose up
 
-Setting the project name to *parrot* with the **-p** option is useful to share the network created with the containers coming from other Parrot docker-compose.yml configurations.
+**IMPORTANT**: You need the **ntpd** daemon running on the host. To install it:
 
+    apt-get install ntp (Debian, Ubuntu)
+    yum install ntp     (RedHat, Centos)
 
 Once started you'll be able to access to the following UIs:
 

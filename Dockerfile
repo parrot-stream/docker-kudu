@@ -1,12 +1,12 @@
-FROM parrotstream/centos-openjdk
+FROM parrotstream/centos-openjdk:8
 
 MAINTAINER Matteo Capitanio <matteo.capitanio@gmail.com>
 
 USER root
 
-ADD cloudera-kudu.repo /etc/yum.repos.d/
-RUN rpm --import https://archive.cloudera.com/kudu/redhat/7/x86_64/kudu/RPM-GPG-KEY-cloudera
-RUN yum install -y initscripts kudu kudu-master kudu-tserver kudu-client0  kudu-client-devel
+ADD cloudera-cdh5.repo /etc/yum.repos.d/
+RUN rpm --import https://archive.cloudera.com/cdh5/redhat/7/x86_64/cdh/RPM-GPG-KEY-cloudera
+RUN yum install -y initscripts kudu kudu-master kudu-tserver kudu-client0 kudu-client-devel kudu-debuginfo
 RUN yum clean all
 
 ADD etc/supervisord.conf /etc/
@@ -22,9 +22,6 @@ RUN chmod +x ./*.sh
 
 EXPOSE 8050 7050 8051 7051
 
-#RUN yum install -y initscripts
-#RUN yum install -y 
-#RUN yum install -y ntp
 #RUN chkconfig ntpd on
 
 ENTRYPOINT ["supervisord", "-c", "/etc/supervisord.conf", "-n"]

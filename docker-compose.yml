@@ -1,5 +1,14 @@
 version: '3'
 services:
+  zookeeper:
+    image: parrotstream/zookeeper:latest
+    ports:
+    - 2181:2181
+    - 2888:2888
+    - 3888:3888
+    - 8080:8080
+    networks:
+    - parrot
   kudu-master:
     build:
       context: .
@@ -11,6 +20,8 @@ services:
         - kudu
     cap_add:
     - SYS_TIME
+    links:
+    - zookeeper
     ports:
     - 7051:7051
     - 8051:8051
