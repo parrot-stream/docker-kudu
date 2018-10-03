@@ -1,12 +1,13 @@
 version: '3'
 services:
   kudu-master:
+    container_name: kudu-master
     build:
       context: .
       dockerfile: Dockerfile
     image: parrotstream/kudu:1.6.0-cdh6.0.0
     networks:
-      parrot:
+      default:
         aliases:
         - kudu
     cap_add:
@@ -17,12 +18,11 @@ services:
     environment:
       KUDU_MASTER: "true"
   kudu-tserver:
+    container_name: kudu-tserver
     build:
       context: .
       dockerfile: Dockerfile
     image: parrotstream/kudu:1.6.0-cdh6.0.0
-    networks:
-    - parrot
     cap_add:
     - SYS_TIME
     ports:
@@ -33,6 +33,4 @@ services:
 networks:
   default:
     external:
-      name: parrot
-  parrot:
-    driver: bridge
+      name: parrot_default

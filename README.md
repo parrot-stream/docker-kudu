@@ -24,6 +24,8 @@ Stop with Docker Compose:
     apt-get install ntp (Debian, Ubuntu)
     yum install ntp     (RedHat, Centos)
 
+    sudo service ntp start
+
 Once started you'll be able to access to the following UIs:
 
 | **Kudu Web UIs**           |**URL**                    |
